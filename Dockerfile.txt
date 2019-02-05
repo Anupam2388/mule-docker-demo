@@ -1,0 +1,41 @@
+# Dockerizing Mule EE
+# Based on:  java:8u111-jre and Java 8 is the basic requirement to run mule 3.9 version (https://docs.mulesoft.com/mule-runtime/3.9/hardware-and-software-requirements)
+
+FROM                    java:8u111-jre
+MAINTAINER              Anup Salokhe (anup.salokhe@devoteam.com)
+
+# MuleEE installation:
+
+# This line can reference either a web url (ADD), network share or local file (COPY)
+# COPY                    ./mmc-distribution-mule-console-bundle-3.5.1.tar.gz /opt/
+RUN wget -P /opt/ https://repository-master.mulesoft.org/nexus/service/local/repositories/releases/content/org/mule/distributions/mule-standalone/3.9.0/mule-standalone-3.9.0.tar.gz
+
+WORKDIR                 /opt
+#RUN                     echo "6814d3dffb5d8f308101ebb3f4e3224a mule-standalone-3.9.0.tar.gz" | md5sum -c
+RUN                     tar -xzvf /opt/mule-standalone-3.9.0.tar.gz
+RUN                     ln -s /opt/mule-standalone-3.9.0 mule
+RUN                     rm -f mule-standalone-3.9.0.tar.gz
+
+# Remove the files which we don't need in production:
+RUN                     rm -f  mule-standalone-3.9.0.tar.gz
+RUN                     rm -Rf mule-standalone-3.9.0.tar/mmc-3.5.1
+RUN                     rm -f mule-standalone-3.9.0.tar/startup*
+RUN                     rm -f mule-standalone-3.9.0.tar/shutdown*
+RUN                     rm -f mule-standalone-3.9.0.tar/status*
+
+# Configure external access:
+
+# Mule remote debugger
+EXPOSE  5000
+
+# Mule JMX port (must match Mule config file)
+EXPOSE  1098
+
+# Mule MMC agent port
+EXPOSE  7777
+
+# Environment and execution:
+ENV             MULE_BASE /opt/mule
+WORKDIR         /opt/mule-standalone-3.9.0
+
+CMD             /opt/mule/bin/mule
