@@ -14,6 +14,15 @@ RUN                     tar -xzvf /opt/mule-standalone-3.9.0.tar.gz
 RUN                     ln -s /opt/mule-standalone-3.9.0 mule
 RUN                     rm -f mule-standalone-3.9.0.tar.gz
 
+# In Case you want to use the Enterprise mule runtime distribution you must comply with license agreement, and provide the necessary license key while building the image.
+#WORKDIR                 /opt/mule-standalone-3.9.0
+#RUN                     rm -Rf .mule
+#ADD                     ./mule-ee-license.lic /opt/mule-standalone-3.9.0/conf/
+#RUN                     bin/mule -installLicense conf/mule-ee-license.lic
+#RUN                     rm -f conf/mule-ee-license.lic
+#RUN                     rm -Rf apps/default*
+#RUN                     rm -Rf examples
+
 # Remove the unwanted files. (In order to maintain the image size as small as possible)
 RUN                     rm -f  mule-standalone-3.9.0.tar.gz
 RUN                     rm -Rf mule-standalone-3.9.0.tar/mmc-3.5.1
