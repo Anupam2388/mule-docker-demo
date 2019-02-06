@@ -5,7 +5,7 @@ This project is build to dockerize the mule application
     docker build -t <<name your image>> .
     
     - "-t" will tag your image with the provided name 
-    - "." will expect the image to be present in the folder from where you are running this command. 
+    - "." will expect the Dockerfile to be present in the root folder from where you are running this command. 
 
 # To Run the Container
     docker run -it --name <<NameURContainer>> -p 80:8081 -v /home/anup/docker_samples/mule/muledockerdemo/myapps/is:/opt/mule/apps -v /home/anup/docker_samples/mule/muledockerdemo/logs:/opt/mule/logs <<imageID/Name>>
