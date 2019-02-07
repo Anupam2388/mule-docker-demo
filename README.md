@@ -34,6 +34,7 @@ Image built in the above step can run a mule standalone server. To run a specifi
     - Application and domain logs will be stored in the mount point. "/home/anup/docker_samples/mule/muledockerdemo/logs"
 # Test. 
 To test the deployed application you can use postman and invoke the below url. 
+
     Syntax :
         http://<<host>>:<<port>>/<<Path of your running application>>
     Example:
@@ -54,3 +55,5 @@ Under the network object, you can further find out IPAddress details as shown be
                 "bridge": {
                     "IPAddress": "172.17.0.2"
                     } }
+
+     
