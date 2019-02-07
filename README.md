@@ -1,5 +1,5 @@
 # mule-docker-demo
-This project is build to dockerize the mule application 
+This project is to dockerize the mule application 
 
 # To Build the Image
     docker build -t <<name your image>> .
@@ -15,5 +15,5 @@ This project is build to dockerize the mule application
     
 # URL to Test the service. 
     http://localhost:80/demo
-  -(localhost in case you are running the container on your localhost)or the specific IP address of the container 
+  -(localhost in case you are running the container on your localhost)or the specific IP address of the container
   -Host port 80 is exposed during runtime of the container
