@@ -11,10 +11,9 @@ This project is to dockerize the mule application
 
 # To Build the Image.
 This dockerfile will build a basic image with the mule runtime 3.9 package and the required software package to run the mule application.
-   
-   **Syntax:**
+   Syntax:
         docker build -t <<name your image>> .
-   **Example:**
+   Example:
         docker build -t salokheanup/mule3.9 .
     - "-t" will tag your image with the provided name 
     - "." will expect the Dockerfile to be present in the root folder from where you are running this command.  
