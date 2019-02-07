@@ -2,6 +2,8 @@
 This project is to dockerize the mule application 
 
 # Sample application 
+demo-mule application zip file is checked into the repository. 
+This is basic application which prints the log "Inside the container and Application demo-mule" and returns the response "Response from the container and Application demo-mule"
 
 # Steps to package an application.
 1. Select **Export** from the File menu.
@@ -17,8 +19,6 @@ This dockerfile will build a basic image with the mule runtime 3.9 package and t
         docker build -t salokheanup/mule3.9 .
     - "-t" will tag your image with the provided name 
     - "." will expect the Dockerfile to be present in the root folder from where you are running this command.  
-
-
 
 # To Run the Container
 Image built in the above step can run a mule standalone server. To run a specific application we need to mount the host directory to container which will automatically build and deploy the application zip file. 
