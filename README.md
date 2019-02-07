@@ -32,7 +32,7 @@ Image built in the above step can run a mule standalone server. To run a specifi
     
     - Application expected to run in the container needs to be present in the below folder which is mounted during runtime. "/home/anup/docker_samples/mule/muledockerdemo/myapps/is".
     - Application and domain logs will be stored in the mount point. "/home/anup/docker_samples/mule/muledockerdemo/logs"
-# URL to Test the service. 
+# To Test the application
     Syntax :
         http://<<host>>:<<port>>/<<Path of your running application>>
     Example:
