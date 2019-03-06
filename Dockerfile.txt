@@ -45,3 +45,7 @@ ENV             MULE_BASE /opt/mule
 WORKDIR         /opt/mule-standalone-3.9.0
 
 CMD             /opt/mule/bin/mule
+
+# Deploy your application
+# Copy the Mule Archive(.zip) in the "/opt/mule/apps/" of container . Comment if you want to mount and use the code base at runtime. 
+# ADD  			./apps/ticketbookingservice.zip   /opt/mule/apps/ticketbookingservice.zip
